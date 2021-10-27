@@ -30,6 +30,10 @@ const logger = winston.createLogger({
         // new winston.transports.File({ filename: 'logs/combined.log' })
     ]
 });
+logger.debug = logger.debug.bind(logger);
+logger.warn = logger.warn.bind(logger);
+logger.error = logger.error.bind(logger);
+logger.info = logger.info.bind(logger);
 
 logger.add(
     new winston.transports.Console({
